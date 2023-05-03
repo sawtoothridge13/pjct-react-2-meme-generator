@@ -1,23 +1,46 @@
 import './App.css';
-import logo from './logo.svg';
+import nodeEmoji from 'node-emoji';
+import { useState } from 'react';
 
 export default function App() {
+  // 1. Create a state variable and setter, with
+  // a default value of a random emoji
+  const [emoji, setEmoji] = useState(nodeEmoji.random().emoji);
+  const [emojiName, setEmojiName] = useState('');
+  const hasError = emojiName !== '' && !nodeEmoji.hasEmoji(emojiName);
+
+  // const [hasError, setHasError] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div>
+        {/* 2. Show the emoji on the screen */}
+        {emoji}
+        <br />
+        <button
+          onClick={() => {
+            // 3. Generate and set a new value for the emoji
+            const newEmoji = nodeEmoji.random().emoji;
+            setEmoji(newEmoji);
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          Generate
+        </button>
+        <br />
+        <input
+          value={emojiName}
+          onChange={(event) => {
+            setEmojiName(event.currentTarget.value);
+            if (nodeEmoji.hasEmoji(event.currentTarget.value)) {
+              // setHasError(false);
+              setEmoji(nodeEmoji.find(event.currentTarget.value).emoji);
+              // } else {
+              //   setHasError(true);
+            }
+          }}
+        />{' '}
+        {hasError && 'x'}
+      </div>
     </div>
   );
 }
