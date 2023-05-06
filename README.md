@@ -1,8 +1,19 @@
 ## React Meme Generator
 
+Create a web app with React that allows for users to generate and download memes using the https://memegen.link/ website.
+
 # TODO
 
-Create a web app with React that allows for users to generate and download memes using the https://memegen.link/ website.
+- [] Create text input box for top and bottom of meme
+
+  - [] Create label element for top box containing the text `Top text`
+  - [] Create label element for bottom box containing the text `Bottom text`
+  - [] Both should be empty when the page first loads
+
+- []
+- []
+- []
+- []
 
 It should allow the user to:
 
