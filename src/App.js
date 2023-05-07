@@ -1,4 +1,5 @@
 import './App.css';
+import { saveAs } from 'file-saver';
 import { useState } from 'react';
 
 const baseURL = 'https://api.memegen.link/images/';
@@ -17,6 +18,12 @@ export default function App() {
   function handleKeyDown(event) {
     if (event.key === 'Enter') {
       setMemeName(event.currentTarget.value);
+    }
+  }
+
+  function download() {
+    if (bottomText && topText && memeName) {
+      saveAs(`${baseURL}${memeName}.jpg`, 'new-meme');
     }
   }
 
@@ -66,7 +73,7 @@ export default function App() {
           alt="meme"
         />
       </div>
-      <button onClick={() => {}}>Download</button>
+      <button onClick={download}>Download</button>
     </div>
   );
 }
