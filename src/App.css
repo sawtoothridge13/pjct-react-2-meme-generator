@@ -15,33 +15,48 @@
   width: 600px;
   height: 600px;
   font-size: 30px;
+  display: flex-inline;
   text-align: center;
+  justify-content: center;
 }
 
-.App > div > span {
+.App > div > header {
+  font-size: 30px;
+  color: #000000;
+  padding: 0px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App > div > div > span {
   font-size: 16px;
   color: #000000;
   padding: 0px;
   margin-bottom: 0px;
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: center;
 }
 
-.App > div > input {
+.App > div > div > input {
   color: #000000;
   padding: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.App > div > div > image {
+  margin-right: 43px;
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: center;
 }
 
 .App > div > button {
   color: #000000;
-  padding: 0px;
-  margin-left: 43px;
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: center;
 }
