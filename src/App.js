@@ -23,42 +23,50 @@ export default function App() {
   return (
     <div className="App">
       <header>Meme Generator</header>
-      <main>
-        <div className="userInput">
-          <label>
-            Meme template
-            <input onClick={clearTemplate} onKeyDown={handleKeyDown} />
-          </label>
+      <div className="userInput">
+        <label>
+          Meme template
+          <input onClick={clearTemplate} onKeyDown={handleKeyDown} />
+        </label>
 
-          <label>
-            Top text
-            <input
-              onChange={(event) => {
-                setTopText(event.currentTarget.value);
-              }}
-            />
-          </label>
-
-          <label>
-            Bottom text
-            <input
-              onChange={(event) => {
-                setTopText(event.currentTarget.value);
-              }}
-            />
-          </label>
-        </div>
-        <aside>
-          <img
-            src="https://reactjs.org/logo-og.png"
-            alt="react logo"
-            style={{ width: '300px' }}
+        <label>
+          Top text
+          <input
+            onChange={(event) => {
+              setTopText(event.currentTarget.value);
+            }}
           />
-        </aside>
-      </main>
-      <footer>
-        <button onClick={() => {}}>Download</button>
-      </footer>
+        </label>
+
+        <label>
+          Bottom text
+          <input
+            onChange={(event) => {
+              setBottomText(event.currentTarget.value);
+            }}
+          />
+        </label>
+      </div>
+      <div className="image">
+        <img
+          data-test-id="meme-image"
+          src={
+            memeName !== '' && topText === '' && bottomText === ''
+              ? `${baseURL}${memeName}.jpg`
+              : memeName === '' && topText !== '' && bottomText === ''
+              ? `${baseURL}preview/${topText}.jpg`
+              : memeName === '' && topText !== '' && bottomText !== ''
+              ? `${baseURL}preview/${topText}/${bottomText}.jpg`
+              : memeName !== '' && topText !== '' && bottomText === ''
+              ? `${baseURL}${memeName}/${topText}.jpg`
+              : memeName !== '' && topText !== '' && bottomText !== ''
+              ? `${baseURL}${memeName}/${topText}/${bottomText}.jpg`
+              : `${baseURL}preview.jpg`
+          }
+          alt="meme"
+        />
+      </div>
+      <button onClick={() => {}}>Download</button>
     </div>
   );
 }

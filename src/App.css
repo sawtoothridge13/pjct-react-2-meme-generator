@@ -4,7 +4,7 @@
   margin: 20px;
   border-radius: 20px;
   width: 600px;
-  height: 800px;
+  height: 1000px;
   font-size: 30px;
   display: flex-inline;
   text-align: center;
@@ -21,7 +21,7 @@
   justify-content: center;
 }
 
-.App > div > main {
+/* .App > div > main {
   font-size: 30px;
   color: #000000;
   padding: 0px;
@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: center;
 }
-
+ */
 .userInput label {
   color: #000000;
   font-size: 16px;
@@ -55,11 +55,10 @@
   justify-content: center;
 }
 
-.App > aside > image {
-  margin-right: 43px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.image > img {
+  margin-right: 0px;
+  height: 350px;
+  width: 350px;
 }
 
 .App > footer {
