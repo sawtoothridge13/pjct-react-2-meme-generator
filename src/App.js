@@ -10,27 +10,35 @@ export default function App() {
 
   return (
     <div className="App">
-      <div>
-        <header>Meme Generator</header>
+      <header>Meme Generator</header>
+      <main>
+        <div className="userInput">
+          <label>
+            Meme template
+            <input />
+          </label>
 
-        <div>
-          <span>Meme template</span>
-          <input />
-          <span>Top text</span>
-          <input />
-          <span>Bottom text</span>
-          <input />
-        </div>
+          <label>
+            Top text
+            <input />
+          </label>
 
-        <img
-          src="https://reactjs.org/logo-og.png"
-          alt="react logo"
-          style={{ width: '300px' }}
-        />
-        <div>
-          <button onClick={() => {}}>Download</button>
+          <label>
+            Bottom text
+            <input />
+          </label>
         </div>
-      </div>
+        <aside>
+          <img
+            src="https://reactjs.org/logo-og.png"
+            alt="react logo"
+            style={{ width: '300px' }}
+          />
+        </aside>
+      </main>
+      <footer>
+        <button onClick={() => {}}>Download</button>
+      </footer>
     </div>
   );
 }
