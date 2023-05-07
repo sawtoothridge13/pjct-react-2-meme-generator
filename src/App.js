@@ -8,6 +8,18 @@ export default function App() {
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
 
+  // function for clearing meme input field
+  function clearTemplate(event) {
+    event.currentTarget.value = '';
+  }
+
+  // function for handling enter key
+  function handleKeyDown(event) {
+    if (event.key === 'Enter') {
+      setMemeName(event.currentTarget.value);
+    }
+  }
+
   return (
     <div className="App">
       <header>Meme Generator</header>
@@ -15,17 +27,25 @@ export default function App() {
         <div className="userInput">
           <label>
             Meme template
-            <input />
+            <input onClick={clearTemplate} onKeyDown={handleKeyDown} />
           </label>
 
           <label>
             Top text
-            <input />
+            <input
+              onChange={(event) => {
+                setTopText(event.currentTarget.value);
+              }}
+            />
           </label>
 
           <label>
             Bottom text
-            <input />
+            <input
+              onChange={(event) => {
+                setTopText(event.currentTarget.value);
+              }}
+            />
           </label>
         </div>
         <aside>
