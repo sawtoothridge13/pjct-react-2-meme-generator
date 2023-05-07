@@ -14,17 +14,10 @@ export default function App() {
   return (
     <div className="App">
       <div>
+        <p>Meme Generator</p>
         {emoji}
         <br />
-        <button
-          onClick={() => {
-            // 3. Generate and set a new value for the emoji
-            const newEmoji = nodeEmoji.random().emoji;
-            setEmoji(newEmoji);
-          }}
-        >
-          Generate
-        </button>
+        <span>Top Text</span>
         <br />
         <input
           value={emojiName}
@@ -38,6 +31,31 @@ export default function App() {
             }
           }}
         />{' '}
+        <br />
+        <span>Bottom Text</span>
+        <br />
+        <input
+          value={emojiName}
+          onChange={(event) => {
+            setEmojiName(event.currentTarget.value);
+            if (nodeEmoji.hasEmoji(event.currentTarget.value)) {
+              // setHasError(false);
+              setEmoji(nodeEmoji.find(event.currentTarget.value).emoji);
+              // } else {
+              //   setHasError(true);
+            }
+          }}
+        />{' '}
+        <br />
+        <button
+          onClick={() => {
+            // 3. Generate and set a new value for the emoji
+            const newEmoji = nodeEmoji.random().emoji;
+            setEmoji(newEmoji);
+          }}
+        >
+          Download
+        </button>
         {hasError && 'x'}
       </div>
     </div>
