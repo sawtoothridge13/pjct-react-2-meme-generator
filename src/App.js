@@ -17,7 +17,7 @@ export default function App() {
         <p>Meme Generator</p>
         {emoji}
         <br />
-        <span>Top Text</span>
+        <span>Meme template</span>
         <br />
         <input
           value={emojiName}
@@ -32,7 +32,22 @@ export default function App() {
           }}
         />{' '}
         <br />
-        <span>Bottom Text</span>
+        <span>Top text</span>
+        <br />
+        <input
+          value={emojiName}
+          onChange={(event) => {
+            setEmojiName(event.currentTarget.value);
+            if (nodeEmoji.hasEmoji(event.currentTarget.value)) {
+              // setHasError(false);
+              setEmoji(nodeEmoji.find(event.currentTarget.value).emoji);
+              // } else {
+              //   setHasError(true);
+            }
+          }}
+        />{' '}
+        <br />
+        <span>Bottom text</span>
         <br />
         <input
           value={emojiName}
